@@ -1,0 +1,138 @@
+body {
+  user-select: none;
+  height: 100%;
+}
+input,
+textarea,
+button,
+select,
+a {
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.butn:focus, .butn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.droptarget{
+  width:85vw;
+  height:auto;
+}
+.crd {
+  position: fixed;
+  margin-top: 80px;
+  margin-left: 47%;
+  width: 50px;
+  height:50px;
+  line-height: 40px;
+  z-index: 1;
+  background-color: #e8e8e8;
+  border-radius: 50px;
+  font-size: 30px;
+}
+.crd:focus{
+  outline: none;
+
+}
+.trash {
+  position: absolute;
+  margin-top: 65px;
+  margin-left: 25%;
+  z-index: 1;
+}
+.sort{
+  position: absolute;
+  margin-top: 65px;
+  margin-left: 45%;
+  z-index: 1;
+}
+.rotateOut {
+  animation-name: rotateOut;
+  transform-origin: center;
+}
+@keyframes rotateOut {
+  to {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+.wrapper-note {
+  margin-top: 30vh;
+  left: 5vw;
+  position: absolute;
+}
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  width: 85vw;
+  height: auto;
+  left:5vw;
+  margin:16px;
+}
+.content-wrapper{
+  margin-left:20%;
+  height:inherit;
+}
+.note h1 {
+  font-size: 2.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+}
+.priority-div{
+   background-color:yellow;
+   float: left;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   height:100%;
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+   width:70px;
+   font-size:30px;
+}
+@media screen and (min-width: 550px) {
+  .wrapper-note {
+    margin-top: 30vh;
+    margin-left: 2vw;
+    position: absolute;
+  }
+}
+@media screen and (min-width: 600px) {
+  .card {
+    margin-top: 80px;
+    margin-left: 48.3%;
+  }
+}
