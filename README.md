@@ -1,6 +1,6 @@
 # Reeker
 
-Reeker is a simple scheduler and productivity tracker web application.
+Reeker is a simple scheduler and productivity tracking web application.
 
 
 ## Contributing
