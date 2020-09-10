@@ -10,24 +10,29 @@ export default function Create(prop) {
     marginLeft = "30px";
     marginLeft2 = "90px";
   }
-
+  
   const [note, setNote] = React.useState({
     title: "",
     content: "",
     startTime: "",
     endTime: "",
-    color:"yellow"
+    color: "#ffd571",
+    date:"",
+    id:-1
   });
   const [value1, setValue1] = React.useState(null);
   const [value2, setValue2] = React.useState(null);
   function handle(e) {
     prop.onAdd(note);
+    prop.handle();
     setNote({
       title: "",
       content: "",
       startTime: "",
       endTime: "",
-      color:"yellow"
+      color: "yellow",
+      date:"",
+      id:""
     });
     setValue1(null);
     setValue2(null);

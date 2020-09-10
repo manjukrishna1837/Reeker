@@ -1,9 +1,20 @@
 import React from "react";
+import Note from "./Note";
 
-export default function Trash(){
-  return(
-    <button className="trash">
-       <img src="https://img.icons8.com/android/20/36454F/trash.png" alt="trash"/>
-    </button>
-  )
+export default function Trash(prop) {
+  return prop.note.map((item, index) => {
+    return (
+      <Note
+        key={index}
+        width={85}
+        title={item.title}
+        content={item.content}
+        startTime={item.startTime}
+        endTime={item.endTime}
+        priority={index + 1}
+        marginLeft={1}
+        color={item.color}
+      />
+    );
+  });
 }

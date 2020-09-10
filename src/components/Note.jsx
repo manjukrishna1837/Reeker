@@ -1,7 +1,5 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { TimePicker } from "antd";
-import moment from "moment";
 
 export default function Note(props) {
   let trashWidth = "20px";
@@ -14,12 +12,12 @@ export default function Note(props) {
   function click(e) {
     props.onTick(props.id);
   }
+
   function handleClick() {
     setEdit(true);
   }
   function handleChange(event) {
     let nameClass = event.target.innerText;
-    console.log(nameClass + " text inside");
     props.change(event.target.className, nameClass, props.id, edit);
   }
   let flag = 0;

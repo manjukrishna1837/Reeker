@@ -17,19 +17,18 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
-import TodayIcon from '@material-ui/icons/Today';
-import SettingsBrightnessIcon from '@material-ui/icons/SettingsBrightness';
+import DeleteIcon from '@material-ui/icons/Delete';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 import ScoreIcon from '@material-ui/icons/Score';
-const drawerWidth = 240;
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
-const arr=[<TodayIcon/>,<SettingsBrightnessIcon/>,<EmojiObjectsIcon/>,<ScoreIcon/>]
+const drawerWidth = 240;
+const arr=[<CalendarTodayIcon/>,<ScoreIcon/>,<EmojiObjectsIcon/>,<DeleteIcon/>];
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    display:'flex'
+    display:'flex',
   },
   toolbar: {
     display: 'flex',
@@ -69,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor:"#dff6f0"
   },
   drawerHeader: {
     display: 'flex',
@@ -126,18 +126,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
   let flag=0;
   let marginTopR="-2px";
   let marginTopr2="0.5vh";
@@ -147,40 +139,34 @@ export default function SearchAppBar() {
       marginTopr2="6vh";
   }
   
-  function handleClick(e){
-    
-  }
   return (   
     <div className={classes.root}>
       <AppBar position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
-        })}>
+        })}
+        style={{
+          backgroundColor:"#fd5e53" 
+        }}
+        >
         <Toolbar>
-          <IconButton
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" style={{fontFamily:"McLaren",color:"white"}}noWrap>
-            Rekcr
+  
+          <Typography className={classes.title} variant="h6" style={{fontFamily:"McLaren",color:"#ffffff"}}noWrap>
+            Reeker
           </Typography>
-          <div className={classes.search}>
+          <div className={classes.search}
+              style={{backgroundColor:"#ffffff"}}          
+          >
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <SearchIcon style={{color:"#706c61"}}/>
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Reeker"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              style={{color:"#706c61",fontWeight:"550"}}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
@@ -195,23 +181,8 @@ export default function SearchAppBar() {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.toolbar} style={{marginTop:marginTopR}}>
-          <IconButton onClick={handleDrawerClose} style={{position:"absolute",marginTop:marginTopr2}}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-       { !!flag && <Typography variant="h5" gutterBottom style={{marginLeft:"28px",fontFamily:"McLaren"}}>
-        Rekcr
-      </Typography>}
-      {!!flag && <Divider />}
-        <List>
-          {['Calendar View', 'Dark Mode', 'Remainders', 'Score'].map((text, index) => (
-            <ListItem button key={text} onClick={handleClick}>
-              <ListItemIcon>{arr[index]}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>       
+        <div className={classes.toolbar} style={{marginTop:marginTopR}} >
+        </div>      
       </Drawer>
     </div>
   );
